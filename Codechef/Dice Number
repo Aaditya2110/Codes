@@ -1,0 +1,20 @@
+def calculate_max_number(rolls):
+    rolls.sort(reverse=True)
+    return int(''.join(map(str, rolls)))
+    
+def winner(Alice_rolls, Bob_rolls):
+    Alice_score = calculate_max_number(Alice_rolls)
+    Bob_score = calculate_max_number(Bob_rolls)
+
+    if Alice_score > Bob_score:
+        return "Alice"
+    elif Alice_score < Bob_score:
+        return "Bob"
+    else:
+        return "Tie"
+
+T = int(input())
+for _ in range(T):
+    A1, A2, A3, B1, B2, B3 = map(int, input().split())
+    result = winner([A1, A2, A3], [B1, B2, B3])
+    print(result)
